@@ -122,5 +122,15 @@ namespace PencilKataTests
       Assert.Equal(6, PencilUtilities.CalculateEraserDurability(10, "lamb"));
       Assert.Equal(0, PencilUtilities.CalculateEraserDurability(10, "Mary had a little lamb"));
     }
+
+    [Fact]
+    public void whenAPencilErasesTheEraserDurabilityIsLessenedPerCharacterErased()
+    {
+      pencil.Erase("Mary had a little lamb", "lamb");
+      Assert.Equal(16, pencil.EraserDurability);
+
+      pencil.Erase("Mary had a little lamb little lamb", "had");
+      Assert.Equal(13, pencil.EraserDurability);
+    }
   }
 }
