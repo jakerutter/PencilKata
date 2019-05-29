@@ -55,7 +55,7 @@ namespace PencilKata
 
       foreach (Char character in text)
       {
-        Int32 cost = PencilUtilities.getCharacterCost(character);
+        Int32 cost = PencilUtilities.GetCharacterCost(character);
 
         if (cost <= durability)
         {
