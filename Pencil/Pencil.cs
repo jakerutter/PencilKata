@@ -98,8 +98,20 @@ namespace PencilKata
         String replacementString = new String(' ', wordToErase.Length);
         paper = paper.Remove(place, wordToErase.Length).Insert(place, replacementString);
       }
+      else
+      {
+        String trimmedPhrase = wordToErase.Replace(" ", "");
 
-      eraserDurability = PencilUtilities.CalculateEraserDurability(eraserDurability, wordToErase);
+        Int32 eraserInsufficiency = trimmedPhrase.Length - EraserDurability;
+
+        place += eraserInsufficiency;
+
+        String replacementString = new String(' ', EraserDurability);
+
+        paper = paper.Remove(place, EraserDurability).Insert(place, replacementString);
+      }
+
+      eraserDurability = PencilUtilities.CalculateEraserDurability(EraserDurability, wordToErase);
 
       return paper;
     }
