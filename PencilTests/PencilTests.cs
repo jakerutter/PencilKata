@@ -137,14 +137,14 @@ namespace PencilKataTests
     public void WhenAPencilHasInsufficientEraserDurabilityItErasesAsManyCharactersAsItHasDurability()
     {
       Pencil pencil = new Pencil(10, 5, 5);
-      string paper = "Mary had a little lamb";
+      String paper = "Mary had a little lamb";
       Assert.Equal("Mary had a l      lamb", pencil.Erase(paper, "little"));
     }
 
     [Fact]
     public void EraserDoesNotLoseDurabilityForWhitespaceBetweenWords()
     {
-      string paper = "Mary had a";
+      String paper = "Mary had a";
       pencil.Erase(paper, "had a");
       Assert.Equal(16, pencil.EraserDurability);
     }
