@@ -2,7 +2,7 @@
 
 namespace PencilKata
 {
-  class PencilUtilities
+  public class PencilUtilities
   {
     public static Int32 getCharacterCost(char character)
     {

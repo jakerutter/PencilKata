@@ -6,6 +6,7 @@ namespace PencilKata
   {
 
     private Int32 durability;
+    private Int32 intitalDurability;
 
     public Int32 Durability
     {
@@ -15,17 +16,26 @@ namespace PencilKata
       }
     }
 
-    public Pencil(Int32 durability)
+    public Int32 InitialDurability
+    {
+      get
+      {
+        return intitalDurability;
+      }
+    }
+
+    public Pencil(Int32 durability, Int32 length)
     {
       this.durability = durability;
+      this.intitalDurability = durability;
     }
 
     public String Write(String paper, String text)
     {
 
-      foreach (char character in text)
+      foreach (Char character in text)
       {
-        int cost = PencilUtilities.getCharacterCost(character);
+        Int32 cost = PencilUtilities.getCharacterCost(character);
 
         if (cost <= durability)
         {
