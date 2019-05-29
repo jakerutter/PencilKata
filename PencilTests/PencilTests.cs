@@ -84,5 +84,12 @@ namespace PencilKataTests
       string paper = "Mary had a little lamb little lamb";
       Assert.Equal("Mary had a little lamb        lamb", pencil.Erase(paper, "little"));
     }
+
+    [Fact]
+    public void whenAPencilIsInstructedToEraseAWordThatDoesNotExistItReturnsTheUnchangedPaper()
+    {
+      string paper = "Mary had a little lamb little lamb";
+      Assert.Equal("Mary had a little lamb little lamb", pencil.Erase(paper, "wolf"));
+    }
   }
 }
