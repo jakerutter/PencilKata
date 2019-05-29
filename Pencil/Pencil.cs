@@ -7,6 +7,7 @@ namespace PencilKata
 
     private Int32 durability;
     private Int32 intitalDurability;
+    private Int32 length;
 
     public Int32 Durability
     {
@@ -24,10 +25,19 @@ namespace PencilKata
       }
     }
 
+    public Int32 Length
+    {
+      get
+      {
+        return length;
+      }
+    }
+
     public Pencil(Int32 durability, Int32 length)
     {
       this.durability = durability;
       this.intitalDurability = durability;
+      this.length = length;
     }
 
     public String Write(String paper, String text)
@@ -49,6 +59,17 @@ namespace PencilKata
       }
 
       return paper;
+    }
+
+    public Int32 Sharpen(Int32 length)
+    {
+      if (length > 0)
+      {
+        length -= 1;
+        durability = InitialDurability;
+      }
+
+      return length;
     }
   }
 }
