@@ -7,7 +7,7 @@ namespace PencilKataTests
     public class PencilTests
     {
 
-    Pencil pencil = new Pencil(20, 5);
+    Pencil pencil = new Pencil(20, 5, 20);
 
     [Fact]
     public void whenGivenAnEmptyPaperAndTextToWriteThePencilWritesTheText()
@@ -56,7 +56,7 @@ namespace PencilKataTests
     [Fact]
     public void whenPencilLengthIsZeroThePencilDurabilityIsNotChangedIfSharpened()
     {
-      pencil = new Pencil(10, 0);
+      pencil = new Pencil(10, 0, 10);
       pencil.Write("", "little ");
       pencil.Sharpen(pencil.Length);
       Assert.Equal(4, pencil.Durability);
@@ -65,7 +65,7 @@ namespace PencilKataTests
     [Fact]
     public void whenPencilWithLengthGreaterThanZeroIsSharpenedDurabilityIsRestored()
     {
-      pencil = new Pencil(20, 5);
+      pencil = new Pencil(20, 5, 10);
       pencil.Write("", "Mary had");
       pencil.Sharpen(pencil.Length);
       Assert.Equal(20, pencil.Durability);
@@ -74,7 +74,7 @@ namespace PencilKataTests
     [Fact]
     public void whenPencilLengthIsZeroThePencilLengthRemainsZeroIfSharpened()
     {
-      pencil = new Pencil(10, 0);
+      pencil = new Pencil(10, 0, 10);
       Assert.Equal(0, pencil.Sharpen(pencil.Length));
     }
 
@@ -100,6 +100,20 @@ namespace PencilKataTests
 
       paper = pencil.Erase(paper, "little");
       Assert.Equal("Mary had a little lamb        lamb        lamb", pencil.Erase(paper, "little"));
+    }
+
+    [Fact]
+    public void canEraseEntirePhraseReturnsTrueIfPencilCanEraseEntirePhrase()
+    {
+      Boolean doesEraseEntire = PencilUtilities.CanEraseEntirePhrase(pencil.EraserDurability, "little lamb");
+      Assert.True(doesEraseEntire);
+    }
+
+    [Fact]
+    public void canEraseEntirePhraseReturnsFalseIfPencilCannotEraseEntirePhrase()
+    {
+      Boolean doesEraseEntire = PencilUtilities.CanEraseEntirePhrase(pencil.EraserDurability, "Mary had a little lamb little lamb");
+      Assert.False(doesEraseEntire);
     }
   }
 }

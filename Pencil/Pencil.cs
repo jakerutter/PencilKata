@@ -8,6 +8,7 @@ namespace PencilKata
     private Int32 durability;
     private Int32 intitalDurability;
     private Int32 length;
+    private Int32 eraserDurability;
 
     public Int32 Durability
     {
@@ -33,11 +34,20 @@ namespace PencilKata
       }
     }
 
-    public Pencil(Int32 durability, Int32 length)
+    public Int32 EraserDurability
+    {
+      get
+      {
+        return eraserDurability;
+      }
+    }
+
+    public Pencil(Int32 durability, Int32 length, Int32 eraserDurability)
     {
       this.durability = durability;
       this.intitalDurability = durability;
       this.length = length;
+      this.eraserDurability = eraserDurability;
     }
 
     public String Write(String paper, String text)
@@ -81,8 +91,13 @@ namespace PencilKata
         return paper;
       }
 
-      String replacementString = new String(' ', wordToErase.Length);
-      paper = paper.Remove(place, wordToErase.Length).Insert(place, replacementString);
+      Boolean canEraseEntireWord = PencilUtilities.CanEraseEntirePhrase(EraserDurability, wordToErase);
+
+      if (canEraseEntireWord)
+      {
+        String replacementString = new String(' ', wordToErase.Length);
+        paper = paper.Remove(place, wordToErase.Length).Insert(place, replacementString);
+      }
 
       return paper;
     }

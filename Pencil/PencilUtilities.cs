@@ -27,5 +27,12 @@ namespace PencilKata
 
       return cost;
     }
+
+    public static Boolean CanEraseEntirePhrase(Int32 eraserDurability, String phraseToErase)
+    {
+      String trimmedPhrase = phraseToErase.Replace(" ", "");
+
+      return (eraserDurability >= trimmedPhrase.Length) ? true : false;
+    }
   }
 }
