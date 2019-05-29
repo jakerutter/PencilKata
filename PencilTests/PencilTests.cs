@@ -7,7 +7,7 @@ namespace PencilKataTests
     public class PencilTests
     {
 
-    Pencil pencil = new Pencil();
+    Pencil pencil = new Pencil(20);
 
     [Fact]
     public void whenGivenAnEmptyPaperAndTextToWriteThePencilWritesTheText()
@@ -19,6 +19,13 @@ namespace PencilKataTests
     public void whenGivenAPaperWithExistingTextThePencilAppendsTheText()
     {
       Assert.Equal("Mary had a little lamb, little lamb", pencil.Write("Mary had a little lamb", ", little lamb"));
+    }
+
+    [Fact]
+    public void pencilExperiencesPointDegradationWhenItWrites()
+    {
+      pencil.Write("", "little lamb");
+      Assert.Equal(10, pencil.Durability);
     }
   }
 }
