@@ -7,9 +7,9 @@ namespace PencilKata
 
     public Pencil() { }
 
-    public string Write(string text)
+    public string Write(String paper, String text)
     {
-      return text;
+      return paper += text;
     }
   }
 }

@@ -1,3 +1,4 @@
+using System;
 using PencilKata;
 using Xunit;
 
@@ -11,7 +12,13 @@ namespace PencilKataTests
     [Fact]
     public void whenGivenTextToWriteThePencilWritesTheText()
     {
-      Assert.Equal("Mary had a little lamb", pencil.Write("Mary had a little lamb"));
+      Assert.Equal("Mary had a little lamb", pencil.Write("", "Mary had a little lamb"));
+    }
+
+    [Fact]
+    public void whenGivenTextAndAPaperWithExistingTextThePencilAppendsTheText()
+    {
+      Assert.Equal("Mary had a little lamb, little lamb", pencil.Write("Mary had a little lamb", ", little lamb"));
     }
   }
 }
