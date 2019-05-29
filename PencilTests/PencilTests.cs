@@ -52,5 +52,14 @@ namespace PencilKataTests
     {
       Assert.Equal(4, pencil.Sharpen(pencil.Length));
     }
+
+    [Fact]
+    public void whenPencilLengthIsZeroThePencilDurabilityIsNotChangedIfSharpened()
+    {
+      pencil = new Pencil(10, 0);
+      pencil.Write("", "little ");
+      pencil.Sharpen(pencil.Length);
+      Assert.Equal(4, pencil.Durability);
+    }
   }
 }
