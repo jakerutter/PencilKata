@@ -27,5 +27,12 @@ namespace PencilKataTests
       pencil.Write("", "little lamb");
       Assert.Equal(10, pencil.Durability);
     }
+
+    [Fact]
+    public void pencilSuffersTwoPointsOfDegredationWhenItWritesUpperCaseLetters()
+    {
+      pencil.Write("", "Mary had");
+      Assert.Equal(12, pencil.Durability);
+    }
   }
 }

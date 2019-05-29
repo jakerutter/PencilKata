@@ -20,11 +20,22 @@ namespace PencilKata
       this.durability = durability;
     }
 
-    public string Write(String paper, String text)
+    public String Write(String paper, String text)
     {
-      Int32 textlength = text.Replace(" ", "").Replace("/n", "").Length;
+      String textWithOutWhiteSpace = text.Replace(" ", "").Replace("/n", "");
 
-      durability -= textlength;
+      foreach (char c in textWithOutWhiteSpace)
+      {
+        if (char.IsUpper(c))
+        {
+          durability -= 2;
+        }
+        else
+        {
+          durability -= 1;
+        }
+      }
+
       return paper += text;
     }
   }
