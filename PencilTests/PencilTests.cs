@@ -115,5 +115,12 @@ namespace PencilKataTests
       Boolean doesEraseEntire = PencilUtilities.CanEraseEntirePhrase(pencil.EraserDurability, "Mary had a little lamb little lamb");
       Assert.False(doesEraseEntire);
     }
+
+    [Fact]
+    public void calculateEraserDurabilityProvidesExpectOutput()
+    {
+      Assert.Equal(6, PencilUtilities.CalculateEraserDurability(10, "lamb"));
+      Assert.Equal(0, PencilUtilities.CalculateEraserDurability(10, "Mary had a little lamb"));
+    }
   }
 }

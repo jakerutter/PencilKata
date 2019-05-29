@@ -34,5 +34,19 @@ namespace PencilKata
 
       return (eraserDurability >= trimmedPhrase.Length) ? true : false;
     }
+
+    public static Int32 CalculateEraserDurability(Int32 eraserDurability, String phraseToErase)
+    {
+      String trimmedPhrase = phraseToErase.Replace(" ", "");
+
+      if (eraserDurability > trimmedPhrase.Length)
+      {
+        return eraserDurability -= trimmedPhrase.Length;
+      }
+      else
+      {
+        return 0;
+      }
+    }
   }
 }

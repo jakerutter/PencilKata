@@ -99,6 +99,8 @@ namespace PencilKata
         paper = paper.Remove(place, wordToErase.Length).Insert(place, replacementString);
       }
 
+      eraserDurability = PencilUtilities.CalculateEraserDurability(eraserDurability, wordToErase);
+
       return paper;
     }
   }
