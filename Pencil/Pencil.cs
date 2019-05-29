@@ -71,5 +71,20 @@ namespace PencilKata
 
       return length;
     }
+
+    public String Erase(String paper, String wordToErase)
+    {
+      Int32 place = paper.LastIndexOf(wordToErase);
+
+      if (place == -1)
+      {
+        return paper;
+      }
+
+      String replacementString = new String(' ', wordToErase.Length);
+      paper = paper.Remove(place, wordToErase.Length).Insert(place, replacementString);
+
+      return paper;
+    }
   }
 }

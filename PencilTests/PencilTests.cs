@@ -77,5 +77,12 @@ namespace PencilKataTests
       pencil = new Pencil(10, 0);
       Assert.Equal(0, pencil.Sharpen(pencil.Length));
     }
+
+    [Fact]
+    public void whenAPencilErasesItRemovesTheLastInstanceOfAWordFromThePaper()
+    {
+      string paper = "Mary had a little lamb little lamb";
+      Assert.Equal("Mary had a little lamb        lamb", pencil.Erase(paper, "little"));
+    }
   }
 }
