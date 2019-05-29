@@ -4,19 +4,19 @@ namespace PencilKata
 {
   public class PencilUtilities
   {
-    public static Int32 getCharacterCost(char character)
+    public static Int32 getCharacterCost(Char character)
     {
       Int32 cost;
 
-      if (char.IsWhiteSpace(character))
+      if (Char.IsWhiteSpace(character))
       {
         cost = 0;
       }
-      else if (char.IsLower(character))
+      else if (Char.IsLower(character))
       {
         cost = 1;
       }
-      else if (char.IsUpper(character))
+      else if (Char.IsUpper(character))
       {
         cost = 2;
       }
