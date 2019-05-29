@@ -22,21 +22,23 @@ namespace PencilKata
 
     public String Write(String paper, String text)
     {
-      String textWithOutWhiteSpace = text.Replace(" ", "").Replace("/n", "");
 
-      foreach (char c in textWithOutWhiteSpace)
+      foreach (char character in text)
       {
-        if (char.IsUpper(c))
+        int cost = PencilUtilities.getCharacterCost(character);
+
+        if (cost <= durability)
         {
-          durability -= 2;
+          paper += character;
+          durability -= cost;
         }
         else
         {
-          durability -= 1;
+          paper += " ";
         }
       }
 
-      return paper += text;
+      return paper;
     }
   }
 }

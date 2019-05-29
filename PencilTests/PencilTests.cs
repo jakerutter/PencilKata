@@ -34,5 +34,11 @@ namespace PencilKataTests
       pencil.Write("", "Mary had");
       Assert.Equal(12, pencil.Durability);
     }
+
+    [Fact]
+    public void whenPencilPointIsCompletelyExhaustedItWritesWhiteSpaces()
+    {
+      Assert.Equal("Mary had a little lamb l          ", pencil.Write("", "Mary had a little lamb little lamb"));
+    }
   }
 }
