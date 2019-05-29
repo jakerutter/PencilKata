@@ -140,5 +140,13 @@ namespace PencilKataTests
       string paper = "Mary had a little lamb";
       Assert.Equal("Mary had a l      lamb", pencil.Erase(paper, "little"));
     }
+
+    [Fact]
+    public void EraserDoesNotLoseDurabilityForWhitespaceBetweenWords()
+    {
+      string paper = "Mary had a";
+      pencil.Erase(paper, "had a");
+      Assert.Equal(16, pencil.EraserDurability);
+    }
   }
 }
