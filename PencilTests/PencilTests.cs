@@ -91,5 +91,15 @@ namespace PencilKataTests
       string paper = "Mary had a little lamb little lamb";
       Assert.Equal("Mary had a little lamb little lamb", pencil.Erase(paper, "wolf"));
     }
+
+    [Fact]
+    public void whenAPencilErasesMoreThanOnceItErasesTheLastOccurrenceFirstEachTime()
+    {
+      string paper = "Mary had a little lamb little lamb little lamb";
+      Assert.Equal("Mary had a little lamb little lamb        lamb", pencil.Erase(paper, "little"));
+
+      paper = pencil.Erase(paper, "little");
+      Assert.Equal("Mary had a little lamb        lamb        lamb", pencil.Erase(paper, "little"));
+    }
   }
 }
