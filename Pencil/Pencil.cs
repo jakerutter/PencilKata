@@ -9,6 +9,7 @@ namespace PencilKata
     private Int32 intitalDurability;
     private Int32 length;
     private Int32 eraserDurability;
+    private Int32 editIndex;
 
     public Int32 Durability
     {
@@ -39,6 +40,14 @@ namespace PencilKata
       get
       {
         return eraserDurability;
+      }
+    }
+
+    public Int32 EditIndex
+    {
+      get
+      {
+        return editIndex;
       }
     }
 
@@ -96,7 +105,10 @@ namespace PencilKata
       if (canEraseEntireWord)
       {
         String replacementString = new String(' ', wordToErase.Length);
+
         paper = paper.Remove(place, wordToErase.Length).Insert(place, replacementString);
+
+        editIndex = place;
       }
       else
       {
