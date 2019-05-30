@@ -156,5 +156,13 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "lamb");
       Assert.Equal(18, pencil.EditIndex);
     }
+
+    [Fact]
+    public void AfterErasingWholePhraseWithWhitespacesTheEditIndexPropertyIsSet()
+    {
+      Pencil pencil = new Pencil(20, 20, 10);
+      String paper = pencil.Erase("Mary had a little lamb", "had a little");
+      Assert.Equal(5, pencil.EditIndex);
+    }
   }
 }
