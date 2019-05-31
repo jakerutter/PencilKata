@@ -224,5 +224,14 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "Mary had");
       Assert.Equal("Joh      a little lamb", pencil.Edit(paper, "John", pencil.EditIndex));
     }
+
+    [Fact]
+    public void EditOccursAtLastEditIndexSetWhenEraseHasBeenCalledMultipleTimes()
+    {
+      Pencil pencil = new Pencil(5, 10, 10);
+      String paper = pencil.Erase("Mary had a little lamb", "had");
+      paper = pencil.Erase(paper, "lamb");
+      Assert.Equal("Mary     a little goat", pencil.Edit(paper, "goat", pencil.EditIndex));
+    }
   }
 }
