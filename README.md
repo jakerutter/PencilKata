@@ -1,6 +1,7 @@
 # PencilKata
 
 ## Instructions for building and running tests
+Note: this is a .Net Core 2.2 app.
 
 ### Get the code
 git clone https://github.com/jakerutter/PencilKata.git
