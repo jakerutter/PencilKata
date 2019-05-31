@@ -138,5 +138,19 @@ namespace PencilKata
         return paper;
       }
     }
+
+    public String Edit(String paper, String wordToEnter, Int32 EditIndex)
+    {
+      Int32 place = EditIndex;
+
+      if (place == -1)
+      {
+        return paper;
+      }
+
+      paper = paper.Insert(place, wordToEnter);
+
+      return paper.TrimEnd();
+    }
   }
 }

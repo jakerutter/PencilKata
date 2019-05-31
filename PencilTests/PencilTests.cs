@@ -180,5 +180,12 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "Mary");
       Assert.Equal(1, pencil.EditIndex);
     }
+
+    [Fact]
+    public void EditCanReplaceErasedWordWithANewWord()
+    {
+      String paper = pencil.Erase("Mary had a little lamb", "lamb");
+      Assert.Equal("Mary had a little bird", pencil.Edit(paper, "bird", pencil.EditIndex));
+    }
   }
 }
