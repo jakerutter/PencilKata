@@ -208,5 +208,13 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "little");
       Assert.Equal(paper.Length, pencil.Edit(paper, "bobtail", pencil.EditIndex).Length);
     }
+
+    [Fact]
+    public void WhenEditingIfPointDurabilityIsExhaustedPencilWritesWhitespaces()
+    {
+      Pencil pencil = new Pencil(3, 10, 10);
+      String paper = pencil.Erase("Mary had a little lamb", "had a");
+      Assert.Equal("Mary kic   little lamb", pencil.Edit(paper, "kicked", pencil.EditIndex));
+    }
   }
 }

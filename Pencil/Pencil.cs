@@ -150,14 +150,25 @@ namespace PencilKata
 
       foreach (Char c in wordToEnter)
       {
-        if (! Char.IsWhiteSpace(paper[place]))
+        Int32 cost = PencilUtilities.GetCharacterCost(c);
+
+        if (Durability >= cost)
         {
-          paper = paper.Remove(place, 1).Insert(place, "@");
+          if (!Char.IsWhiteSpace(paper[place]))
+          {
+            paper = paper.Remove(place, 1).Insert(place, "@");
+          }
+          else
+          {
+            paper = paper.Remove(place, 1).Insert(place, c.ToString());
+          }
+          durability -= cost;
         }
         else
         {
-          paper = paper.Remove(place, 1).Insert(place, c.ToString());
+          paper = paper.Remove(place, 1).Insert(place, " ");
         }
+        
         place += 1;
       }
       return paper;
