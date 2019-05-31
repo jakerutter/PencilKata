@@ -233,5 +233,13 @@ namespace PencilKataTests
       paper = pencil.Erase(paper, "lamb");
       Assert.Equal("Mary     a little goat", pencil.Edit(paper, "goat", pencil.EditIndex));
     }
+
+    [Fact]
+    public void EditCannotOccurIfEraseHasNotFirstOccurred()
+    {
+      Pencil pencil = new Pencil(5, 5, 5);
+      String paper = "Mary had a little lamb";
+      Assert.Equal(paper, pencil.Edit(paper, "wolf", pencil.EditIndex));
+    }
   }
 }

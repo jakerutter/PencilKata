@@ -9,7 +9,7 @@ namespace PencilKata
     private Int32 intitalDurability;
     private Int32 length;
     private Int32 eraserDurability;
-    private Int32 editIndex;
+    private Int32 editIndex = -1;
 
     public Int32 Durability
     {
