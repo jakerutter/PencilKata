@@ -4,8 +4,8 @@ using Xunit;
 
 namespace PencilKataTests
 {
-    public class PencilTests
-    {
+  public class PencilTests
+  {
 
     Pencil pencil = new Pencil(20, 5, 20);
 
@@ -193,6 +193,13 @@ namespace PencilKataTests
     {
       String paper = pencil.Erase("Mary had a little lamb", "had");
       Assert.Equal("Mary rodea little lamb", pencil.Edit(paper, "rode", pencil.EditIndex));
+    }
+
+    [Fact]
+    public void EditPlacesAtSymbolsWhereThereAreCharacterConflicts()
+    {
+      String paper = pencil.Erase("Mary had a little lamb", "had");
+      Assert.Equal("Mary boug@tlittle lamb", pencil.Edit(paper, "bought", pencil.EditIndex));
     }
   }
 }
