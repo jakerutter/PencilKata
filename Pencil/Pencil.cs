@@ -148,9 +148,12 @@ namespace PencilKata
         return paper;
       }
 
-      paper = paper.Insert(place, wordToEnter);
-
-      return paper.TrimEnd();
+      foreach (Char c in wordToEnter)
+      {
+        paper = paper.Remove(place, 1).Insert(place, c.ToString());
+        place += 1;
+      }
+      return paper;
     }
   }
 }

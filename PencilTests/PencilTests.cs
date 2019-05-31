@@ -187,5 +187,12 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "lamb");
       Assert.Equal("Mary had a little bird", pencil.Edit(paper, "bird", pencil.EditIndex));
     }
+
+    [Fact]
+    public void EditOverwritesWhitespaceWhenTheEditWordIsLongerThanTheErasedWord()
+    {
+      String paper = pencil.Erase("Mary had a little lamb", "had");
+      Assert.Equal("Mary rodea little lamb", pencil.Edit(paper, "rode", pencil.EditIndex));
+    }
   }
 }
