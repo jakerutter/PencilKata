@@ -216,5 +216,13 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "had a");
       Assert.Equal("Mary kic   little lamb", pencil.Edit(paper, "kicked", pencil.EditIndex));
     }
+
+    [Fact]
+    public void WhenEditingPencilDurabilityIsImpactedByCharacterCase()
+    {
+      Pencil pencil = new Pencil(4, 10, 10);
+      String paper = pencil.Erase("Mary had a little lamb", "Mary had");
+      Assert.Equal("Joh      a little lamb", pencil.Edit(paper, "John", pencil.EditIndex));
+    }
   }
 }
