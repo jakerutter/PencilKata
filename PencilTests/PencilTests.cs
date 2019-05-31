@@ -201,5 +201,12 @@ namespace PencilKataTests
       String paper = pencil.Erase("Mary had a little lamb", "had");
       Assert.Equal("Mary boug@tlittle lamb", pencil.Edit(paper, "bought", pencil.EditIndex));
     }
+
+    [Fact]
+    public void PaperLengthIsSameBeforeAndAfterEditOccurs()
+    {
+      String paper = pencil.Erase("Mary had a little lamb", "little");
+      Assert.Equal(paper.Length, pencil.Edit(paper, "bobtail", pencil.EditIndex).Length);
+    }
   }
 }
