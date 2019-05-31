@@ -150,7 +150,7 @@ namespace PencilKata
 
       foreach (Char c in wordToEnter)
       {
-        if (!char.IsWhiteSpace(paper[place]))
+        if (! Char.IsWhiteSpace(paper[place]))
         {
           paper = paper.Remove(place, 1).Insert(place, "@");
         }
