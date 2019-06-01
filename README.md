@@ -5,6 +5,8 @@ Note: this is a .Net Core 2.2 app.
 If you need .Net Core you can download it here:
 https://dotnet.microsoft.com/download/dotnet-core/2.2
 
+to ensure install was successful open a new terminal and type: dotnet
+
 ### Get the code
 git clone https://github.com/jakerutter/PencilKata.git
 
